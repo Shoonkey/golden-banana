@@ -1,11 +1,13 @@
-﻿using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Dtos;
+using GoldenBanana.Infrastructure.Interfaces;
+using GoldenBanana.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace GoldenBanana.Infrastructure.Repositories;
 
-public class BaseRepository<T> where T : BaseEntity
+public abstract class BaseRepository<T> where T : BaseEntity
 {
-    private readonly DbSet<T> _dbSet;
+    protected readonly DbSet<T> _dbSet;
     
     public BaseRepository(AppDbContext context)
     {
@@ -31,4 +33,5 @@ public class BaseRepository<T> where T : BaseEntity
 
         _dbSet.Remove(dbObj);
     }
+
 }

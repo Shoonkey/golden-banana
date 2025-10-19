@@ -1,5 +1,10 @@
-using GoldenBanana.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+
+using GoldenBanana.Infrastructure;
+using GoldenBanana.Infrastructure.Interfaces;
+using GoldenBanana.Infrastructure.Repositories;
+using GoldenBanana.Interfaces;
+using GoldenBanana.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +21,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IHideoutService, HideoutService>();
+builder.Services.AddScoped<IHideoutRepository, HideoutRepository>();
 
 var app = builder.Build();
 

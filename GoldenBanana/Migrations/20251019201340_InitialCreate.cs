@@ -24,18 +24,6 @@ namespace GoldenBanana.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "HideoutTags",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_HideoutTags", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -54,10 +42,12 @@ namespace GoldenBanana.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    HideoutMapId = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     PoeVersion = table.Column<int>(type: "integer", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
                     HasMTX = table.Column<bool>(type: "boolean", nullable: false),
+                    Rating = table.Column<decimal>(type: "numeric", nullable: false),
                     TimesDownloaded = table.Column<int>(type: "integer", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
@@ -65,6 +55,12 @@ namespace GoldenBanana.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Hideouts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Hideouts_HideoutMaps_HideoutMapId",
+                        column: x => x.HideoutMapId,
+                        principalTable: "HideoutMaps",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Hideouts_Users_UserId",
                         column: x => x.UserId,
@@ -144,6 +140,24 @@ namespace GoldenBanana.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "HideoutTags",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    HideoutId = table.Column<Guid>(type: "uuid", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HideoutTags", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_HideoutTags_Hideouts_HideoutId",
+                        column: x => x.HideoutId,
+                        principalTable: "Hideouts",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserFavoritedHideouts",
                 columns: table => new
                 {
@@ -189,9 +203,19 @@ namespace GoldenBanana.Migrations
                 column: "HideoutId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Hideouts_HideoutMapId",
+                table: "Hideouts",
+                column: "HideoutMapId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Hideouts_UserId",
                 table: "Hideouts",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HideoutTags_HideoutId",
+                table: "HideoutTags",
+                column: "HideoutId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserFavoritedHideouts_HideoutId",
@@ -218,9 +242,6 @@ namespace GoldenBanana.Migrations
                 name: "HideoutImages");
 
             migrationBuilder.DropTable(
-                name: "HideoutMaps");
-
-            migrationBuilder.DropTable(
                 name: "HideoutTags");
 
             migrationBuilder.DropTable(
@@ -228,6 +249,9 @@ namespace GoldenBanana.Migrations
 
             migrationBuilder.DropTable(
                 name: "Hideouts");
+
+            migrationBuilder.DropTable(
+                name: "HideoutMaps");
 
             migrationBuilder.DropTable(
                 name: "Users");

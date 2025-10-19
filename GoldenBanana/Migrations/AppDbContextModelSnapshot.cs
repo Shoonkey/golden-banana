@@ -38,12 +38,18 @@ namespace GoldenBanana.Migrations
                     b.Property<bool>("HasMTX")
                         .HasColumnType("boolean");
 
+                    b.Property<Guid>("HideoutMapId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("PoeVersion")
                         .HasColumnType("integer");
+
+                    b.Property<decimal>("Rating")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("TimesDownloaded")
                         .HasColumnType("integer");
@@ -55,6 +61,8 @@ namespace GoldenBanana.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HideoutMapId");
 
                     b.HasIndex("UserId");
 
@@ -168,11 +176,16 @@ namespace GoldenBanana.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("HideoutId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HideoutId");
 
                     b.ToTable("HideoutTags");
                 });
@@ -219,6 +232,12 @@ namespace GoldenBanana.Migrations
 
             modelBuilder.Entity("GoldenBanana.Infrastructure.Models.Hideout", b =>
                 {
+                    b.HasOne("GoldenBanana.Infrastructure.Models.HideoutMap", "Map")
+                        .WithMany()
+                        .HasForeignKey("HideoutMapId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GoldenBanana.Infrastructure.Models.User", "Author")
                         .WithMany("Hideouts")
                         .HasForeignKey("UserId")
@@ -226,6 +245,8 @@ namespace GoldenBanana.Migrations
                         .IsRequired();
 
                     b.Navigation("Author");
+
+                    b.Navigation("Map");
                 });
 
             modelBuilder.Entity("GoldenBanana.Infrastructure.Models.HideoutChangelogEntry", b =>
@@ -269,6 +290,13 @@ namespace GoldenBanana.Migrations
                     b.Navigation("Hideout");
                 });
 
+            modelBuilder.Entity("GoldenBanana.Infrastructure.Models.HideoutTag", b =>
+                {
+                    b.HasOne("GoldenBanana.Infrastructure.Models.Hideout", null)
+                        .WithMany("Tags")
+                        .HasForeignKey("HideoutId");
+                });
+
             modelBuilder.Entity("GoldenBanana.Infrastructure.Models.UserFavoritedHideout", b =>
                 {
                     b.HasOne("GoldenBanana.Infrastructure.Models.Hideout", "Hideout")
@@ -291,6 +319,8 @@ namespace GoldenBanana.Migrations
             modelBuilder.Entity("GoldenBanana.Infrastructure.Models.Hideout", b =>
                 {
                     b.Navigation("Images");
+
+                    b.Navigation("Tags");
 
                     b.Navigation("UsersFavorited");
                 });

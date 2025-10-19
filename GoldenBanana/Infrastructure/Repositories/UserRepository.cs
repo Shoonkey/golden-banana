@@ -1,5 +1,13 @@
-﻿namespace GoldenBanana.Infrastructure.Repositories;
+﻿using GoldenBanana.Infrastructure.Models;
 
-public class UserRepository
+namespace GoldenBanana.Infrastructure.Repositories;
+
+public class UserRepository : BaseRepository<User>
 {
+    private readonly AppDbContext _context;
+
+    public UserRepository(AppDbContext context) : base(context)
+    {
+        _context = context;
+    }
 }
