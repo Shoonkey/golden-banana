@@ -1,4 +1,4 @@
-﻿namespace GoldenBanana.Enums
+﻿namespace GoldenBanana.Api.Enums
 {
     public enum PoeVersion
     {

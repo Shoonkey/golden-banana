@@ -1,6 +1,6 @@
-﻿using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Infrastructure.Models;
 
-namespace GoldenBanana.Infrastructure.Interfaces;
+namespace GoldenBanana.Api.Infrastructure.Interfaces;
 
 public interface IHideoutRepository : IFilterableRepository<Hideout>
 {

@@ -1,4 +1,4 @@
-﻿namespace GoldenBanana.Dtos.Hideouts;
+﻿namespace GoldenBanana.Api.Dtos.Hideouts;
 
 public class PaginatedResponse<T>
 {

@@ -1,9 +1,9 @@
-using GoldenBanana.Dtos;
-using GoldenBanana.Infrastructure;
-using GoldenBanana.Infrastructure.Interfaces;
-using GoldenBanana.Infrastructure.Repositories;
-using GoldenBanana.Interfaces;
-using GoldenBanana.Services;
+using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Infrastructure;
+using GoldenBanana.Api.Infrastructure.Interfaces;
+using GoldenBanana.Api.Infrastructure.Repositories;
+using GoldenBanana.Api.Interfaces;
+using GoldenBanana.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

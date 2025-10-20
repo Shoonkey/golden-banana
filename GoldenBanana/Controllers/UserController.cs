@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GoldenBanana.Controllers;
+namespace GoldenBanana.Api.Controllers;
 
 public class UserController : Controller
 {

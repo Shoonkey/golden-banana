@@ -1,4 +1,4 @@
-﻿namespace GoldenBanana.Dtos;
+﻿namespace GoldenBanana.Api.Dtos;
 
 public abstract class Filter
 {

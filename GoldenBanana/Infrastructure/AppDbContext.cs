@@ -1,7 +1,7 @@
-﻿using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GoldenBanana.Infrastructure;
+namespace GoldenBanana.Api.Infrastructure;
 
 public class AppDbContext : DbContext
 {

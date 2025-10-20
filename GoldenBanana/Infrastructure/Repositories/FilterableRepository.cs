@@ -1,9 +1,9 @@
-﻿using GoldenBanana.Dtos;
-using GoldenBanana.Dtos.Hideouts;
-using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Dtos.Hideouts;
+using GoldenBanana.Api.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GoldenBanana.Infrastructure.Repositories;
+namespace GoldenBanana.Api.Infrastructure.Repositories;
 public abstract class FilterableRepository<T>(AppDbContext context)
     : BaseRepository<T>(context) 
         where T : BaseEntity

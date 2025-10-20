@@ -1,7 +1,7 @@
-﻿using GoldenBanana.Dtos;
-using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Infrastructure.Models;
 
-namespace GoldenBanana.Infrastructure.Interfaces;
+namespace GoldenBanana.Api.Infrastructure.Interfaces;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {

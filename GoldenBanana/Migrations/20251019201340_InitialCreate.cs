@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace GoldenBanana.Migrations
+namespace GoldenBanana.Api.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

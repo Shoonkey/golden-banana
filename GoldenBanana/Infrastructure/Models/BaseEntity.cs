@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GoldenBanana.Infrastructure.Models;
+namespace GoldenBanana.Api.Infrastructure.Models;
 
 public abstract class BaseEntity
 {

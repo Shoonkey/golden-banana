@@ -1,6 +1,6 @@
-﻿using GoldenBanana.Enums;
+﻿using GoldenBanana.Api.Enums;
 
-namespace GoldenBanana.Dtos.Hideouts;
+namespace GoldenBanana.Api.Dtos.Hideouts;
 
 public class HideoutFilter : Filter
 {

@@ -1,9 +1,9 @@
-﻿using GoldenBanana.Dtos;
-using GoldenBanana.Infrastructure.Interfaces;
-using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Infrastructure.Interfaces;
+using GoldenBanana.Api.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GoldenBanana.Infrastructure.Repositories;
+namespace GoldenBanana.Api.Infrastructure.Repositories;
 
 public abstract class BaseRepository<T>(AppDbContext context) 
     where T : BaseEntity

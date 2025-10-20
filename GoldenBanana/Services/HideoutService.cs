@@ -1,8 +1,8 @@
-﻿using GoldenBanana.Dtos.Hideouts;
-using GoldenBanana.Infrastructure.Interfaces;
-using GoldenBanana.Interfaces;
+﻿using GoldenBanana.Api.Dtos.Hideouts;
+using GoldenBanana.Api.Infrastructure.Interfaces;
+using GoldenBanana.Api.Interfaces;
 
-namespace GoldenBanana.Services;
+namespace GoldenBanana.Api.Services;
 
 public class HideoutService(
     IHideoutRepository repository) : IHideoutService

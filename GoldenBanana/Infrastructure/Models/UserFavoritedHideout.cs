@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GoldenBanana.Infrastructure.Models;
+namespace GoldenBanana.Api.Infrastructure.Models;
 
 [Table("UserFavoritedHideouts")]
 [PrimaryKey(nameof(UserId), nameof(HideoutId))]

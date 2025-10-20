@@ -1,12 +1,12 @@
-﻿using GoldenBanana.Dtos;
-using GoldenBanana.Dtos.Hideouts;
-using GoldenBanana.Infrastructure.Interfaces;
-using GoldenBanana.Infrastructure.Models;
-using GoldenBanana.Services;
+﻿using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Dtos.Hideouts;
+using GoldenBanana.Api.Infrastructure.Interfaces;
+using GoldenBanana.Api.Infrastructure.Models;
+using GoldenBanana.Api.Services;
 using Moq;
 using System.Linq.Expressions;
 
-namespace GoldenBanana.Tests.Repositories;
+namespace GoldenBanana.Api.Tests.Repositories;
 
 public class HideoutServiceTests
 {

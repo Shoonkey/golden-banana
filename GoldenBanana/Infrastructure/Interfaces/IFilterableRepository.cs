@@ -1,8 +1,8 @@
-﻿using GoldenBanana.Dtos;
-using GoldenBanana.Dtos.Hideouts;
-using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Dtos.Hideouts;
+using GoldenBanana.Api.Infrastructure.Models;
 
-namespace GoldenBanana.Infrastructure.Interfaces;
+namespace GoldenBanana.Api.Infrastructure.Interfaces;
 
 public interface IFilterableRepository<T> where T : BaseEntity
 {

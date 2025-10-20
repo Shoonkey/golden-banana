@@ -1,6 +1,6 @@
-﻿using GoldenBanana.Dtos.Hideouts;
+﻿using GoldenBanana.Api.Dtos.Hideouts;
 
-namespace GoldenBanana.Interfaces
+namespace GoldenBanana.Api.Interfaces
 {
     public interface IHideoutService
     {

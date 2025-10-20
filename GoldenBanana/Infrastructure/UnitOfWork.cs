@@ -1,7 +1,7 @@
-﻿using GoldenBanana.Infrastructure.Interfaces;
+﻿using GoldenBanana.Api.Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace GoldenBanana.Infrastructure;
+namespace GoldenBanana.Api.Infrastructure;
 
 public class UnitOfWork : IUnitOfWork
 {

@@ -1,10 +1,10 @@
-﻿using GoldenBanana.Dtos;
-using GoldenBanana.Dtos.Hideouts;
-using GoldenBanana.Infrastructure.Interfaces;
-using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Dtos.Hideouts;
+using GoldenBanana.Api.Infrastructure.Interfaces;
+using GoldenBanana.Api.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GoldenBanana.Infrastructure.Repositories;
+namespace GoldenBanana.Api.Infrastructure.Repositories;
 
 public class HideoutRepository(AppDbContext context) 
     : FilterableRepository<Hideout>(context), IHideoutRepository
@@ -33,6 +33,14 @@ public class HideoutRepository(AppDbContext context)
         if (parsedFilter.HasMTX != null)
         {
             query = query.Where(h => h.HasMTX == parsedFilter.HasMTX);
+        }
+        if (parsedFilter.MapIds != null)
+        {
+            query = query.Where(h => parsedFilter.MapIds.Contains(h.HideoutMapId));
+        }
+        if (parsedFilter.Tags != null)
+        {
+            query = query.Where(h => h.Tags.Any(t => parsedFilter.Tags.Contains(t.Id)));
         }
 
         return query;

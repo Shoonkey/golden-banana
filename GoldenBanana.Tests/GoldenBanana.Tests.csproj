@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoldenBanana\GoldenBanana.csproj" />
+    <ProjectReference Include="..\GoldenBanana\GoldenBanana.Api.Api.csproj" />
   </ItemGroup>
 
 </Project>

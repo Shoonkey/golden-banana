@@ -1,8 +1,8 @@
-﻿using GoldenBanana.Dtos.Hideouts;
-using GoldenBanana.Interfaces;
+﻿using GoldenBanana.Api.Dtos.Hideouts;
+using GoldenBanana.Api.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GoldenBanana.Controllers;
+namespace GoldenBanana.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]

@@ -1,6 +1,6 @@
-﻿using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Infrastructure.Models;
 
-namespace GoldenBanana.Infrastructure.Repositories;
+namespace GoldenBanana.Api.Infrastructure.Repositories;
 
 public class HideoutChangelogEntryRepository : BaseRepository<HideoutChangelogEntry>
 {

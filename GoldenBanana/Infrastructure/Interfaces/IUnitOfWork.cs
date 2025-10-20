@@ -1,4 +1,4 @@
-﻿namespace GoldenBanana.Infrastructure.Interfaces
+﻿namespace GoldenBanana.Api.Infrastructure.Interfaces
 {
     public interface IUnitOfWork
     {

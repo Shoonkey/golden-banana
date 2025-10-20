@@ -1,8 +1,8 @@
-﻿using GoldenBanana.Enums;
+﻿using GoldenBanana.Api.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GoldenBanana.Infrastructure.Models;
+namespace GoldenBanana.Api.Infrastructure.Models;
 
 [Table("Hideouts")]
 public class Hideout : BaseEntity

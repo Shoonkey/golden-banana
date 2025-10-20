@@ -1,6 +1,6 @@
-﻿using GoldenBanana.Infrastructure.Models;
+﻿using GoldenBanana.Api.Infrastructure.Models;
 
-namespace GoldenBanana.Dtos.Hideouts;
+namespace GoldenBanana.Api.Dtos.Hideouts;
 
 public record HideoutListItem(
     Guid Id,
