@@ -22,7 +22,7 @@ public class HideoutService(
                 h.Id,
                 h.Name,
                 [.. h.Images.Select(i => i.Url)],
-                [.. h.Tags],
+                [.. h.Tags.Select(t => t.Tag)],
                 h.Map,
                 h.HasMTX,
                 h.Rating,

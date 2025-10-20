@@ -10,8 +10,10 @@ public class HideoutRepository(AppDbContext context)
     : FilterableRepository<Hideout>(context), IHideoutRepository
 {
     protected override IQueryable<Hideout> DefineNavigationProperties() =>
-        _dbSet.Include(h => h.Map)
-        .Include(h => h.Author);
+        _dbSet
+            .Include(h => h.Map)
+            .Include(h => h.Author)
+            .Include(h => h.Tags).ThenInclude(ht => ht.Tag);
 
     protected override IQueryable<Hideout> Filter(
         IQueryable<Hideout> query,
