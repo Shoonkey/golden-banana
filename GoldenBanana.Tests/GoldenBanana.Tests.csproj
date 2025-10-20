@@ -22,11 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\GoldenBanana\GoldenBanana.Api.Api.csproj" />
+    <ProjectReference Include="..\GoldenBanana.Api\GoldenBanana.Api.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ using GoldenBanana.Api.Services;
 using Moq;
 using System.Linq.Expressions;
 
-namespace GoldenBanana.Api.Tests.Repositories;
+namespace GoldenBanana.Tests.Services;
 
 public class HideoutServiceTests
 {
