@@ -1,6 +1,0 @@
-@GoldenBanana_HostAddress = http://localhost:5112
-
-GET {{GoldenBanana_HostAddress}}/
-Accept: application/json
-
-###
