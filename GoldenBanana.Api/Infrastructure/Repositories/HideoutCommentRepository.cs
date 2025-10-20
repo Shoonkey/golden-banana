@@ -2,12 +2,6 @@
 
 namespace GoldenBanana.Api.Infrastructure.Repositories;
 
-public class HideoutCommentRepository : BaseRepository<HideoutComment>
+public class HideoutCommentRepository(AppDbContext context) : BaseRepository<HideoutComment>(context)
 {
-    private readonly AppDbContext _context;
-
-    public HideoutCommentRepository(AppDbContext context) : base(context)
-    {
-        _context = context;
-    }
 }

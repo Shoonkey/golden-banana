@@ -2,13 +2,7 @@
 
 namespace GoldenBanana.Api.Infrastructure.Repositories;
 
-public class HideoutTagRepository : BaseRepository<HideoutTag>
+public class HideoutTagRepository(AppDbContext context) : BaseRepository<HideoutTag>(context)
 {
-    private readonly AppDbContext _context;
-
-    public HideoutTagRepository(AppDbContext context) : base(context)
-    {
-        _context = context;
-    }
 }
 

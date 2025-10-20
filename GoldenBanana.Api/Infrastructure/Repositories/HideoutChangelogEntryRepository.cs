@@ -2,12 +2,6 @@
 
 namespace GoldenBanana.Api.Infrastructure.Repositories;
 
-public class HideoutChangelogEntryRepository : BaseRepository<HideoutChangelogEntry>
+public class HideoutChangelogEntryRepository(AppDbContext context) : BaseRepository<HideoutChangelogEntry>(context)
 {
-    private readonly AppDbContext _context;
-
-    public HideoutChangelogEntryRepository(AppDbContext context) : base(context)
-    {
-        _context = context;
-    }
 }

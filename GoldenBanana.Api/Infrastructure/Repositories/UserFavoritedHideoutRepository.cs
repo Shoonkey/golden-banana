@@ -2,13 +2,7 @@
 
 namespace GoldenBanana.Api.Infrastructure.Repositories;
 
-public class UserFavoritedHideoutRepository : BaseRepository<UserFavoritedHideout>
+public class UserFavoritedHideoutRepository(AppDbContext context) : BaseRepository<UserFavoritedHideout>(context)
 {
-    private readonly AppDbContext _context;
-
-    public UserFavoritedHideoutRepository(AppDbContext context) : base(context)
-    {
-        _context = context;
-    }
 }
 
