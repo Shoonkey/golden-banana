@@ -5,14 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoldenBanana.Infrastructure.Repositories;
 
-public abstract class BaseRepository<T> where T : BaseEntity
+public abstract class BaseRepository<T>(AppDbContext context) 
+    where T : BaseEntity
 {
-    protected readonly DbSet<T> _dbSet;
-    
-    public BaseRepository(AppDbContext context)
-    {
-        _dbSet = context.Set<T>();
-    }
+    protected readonly DbSet<T> _dbSet = context.Set<T>();
+    protected readonly AppDbContext _context = context;
 
     public async Task<T?> GetByIdAsync(Guid id)
     {
@@ -20,7 +17,8 @@ public abstract class BaseRepository<T> where T : BaseEntity
         return await _dbSet.SingleOrDefaultAsync(obj => obj.Id == id);
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
+    public async Task<IEnumerable<T>> GetAllAsync() =>
+        await _dbSet.ToListAsync();
 
     public void Create(T data) => _dbSet.Add(data);
 

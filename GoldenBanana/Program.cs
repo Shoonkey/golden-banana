@@ -1,12 +1,13 @@
-using Microsoft.EntityFrameworkCore;
-
+using GoldenBanana.Dtos;
 using GoldenBanana.Infrastructure;
 using GoldenBanana.Infrastructure.Interfaces;
 using GoldenBanana.Infrastructure.Repositories;
 using GoldenBanana.Interfaces;
 using GoldenBanana.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddUserSecrets<AppSettings>();
 
 // Add services to the container.
 var con = builder.Configuration.GetConnectionString("DefaultConnection");

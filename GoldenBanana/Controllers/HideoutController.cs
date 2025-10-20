@@ -1,19 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using GoldenBanana.Infrastructure.Models;
-using GoldenBanana.Dtos;
+﻿using GoldenBanana.Dtos.Hideouts;
 using GoldenBanana.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GoldenBanana.Controllers;
 
-public class HideoutController(IHideoutService hideoutService) : Controller
+[ApiController]
+[Route("[controller]")]
+public class HideoutController(
+    IHideoutService hideoutService) : ControllerBase
 {
     private readonly IHideoutService _hideoutService = hideoutService;
 
-    [HttpGet("/hideout/list")]
+    [HttpGet("list")]
     public async Task<ActionResult> GetFilteredAsync([FromQuery] int page, [FromQuery] int pageSize, [FromQuery] HideoutFilter filters)
     {
-        var filtered = await _hideoutService.GetFilteredAsync(page, pageSize, filters);
-        // TODO: Transform to DTO { list: HideoutDto[], matchCount: int }
+        var filtered = await _hideoutService.GetFilteredAsync(
+            page,
+            pageSize,
+            filters);
+
         return Ok(filtered);
     }
 }

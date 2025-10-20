@@ -1,21 +1,40 @@
 ﻿using GoldenBanana.Dtos;
+using GoldenBanana.Dtos.Hideouts;
 using GoldenBanana.Infrastructure.Interfaces;
 using GoldenBanana.Infrastructure.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GoldenBanana.Infrastructure.Repositories;
 
-public class HideoutRepository : FilterableRepository<Hideout>, IHideoutRepository
+public class HideoutRepository(AppDbContext context) 
+    : FilterableRepository<Hideout>(context), IHideoutRepository
 {
-    private readonly AppDbContext _context;
+    protected override IQueryable<Hideout> DefineNavigationProperties() =>
+        _dbSet.Include(h => h.Map)
+        .Include(h => h.Author);
 
-    public HideoutRepository(AppDbContext context) : base(context)
+    protected override IQueryable<Hideout> Filter(
+        IQueryable<Hideout> query,
+        Filter? filter)
     {
-        _context = context;
-    }
+        if (filter == null || filter is not HideoutFilter parsedFilter)
+        {
+            return query;
+        }
 
-    protected override IQueryable<Hideout> Filter(Filter filter)
-    {
-        // TODO: Implement hideout filtering based on filter
-        throw new NotImplementedException("Hideout filters not implemented yet");
+        if (parsedFilter.Name != null)
+        {
+            query = query.Where(h => h.Name.Contains(parsedFilter.Name));
+        }
+        if (parsedFilter.PoeVersion != null)
+        {
+            query = query.Where(h => h.PoeVersion == parsedFilter.PoeVersion);
+        }
+        if (parsedFilter.HasMTX != null)
+        {
+            query = query.Where(h => h.HasMTX == parsedFilter.HasMTX);
+        }
+
+        return query;
     }
 }
