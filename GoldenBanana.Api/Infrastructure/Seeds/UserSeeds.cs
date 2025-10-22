@@ -12,7 +12,7 @@ public static class UserSeeds
             {
                 Id = Guid.Parse("10000000-0000-0000-0000-000000000001"),
                 Username = "shinjinho",
-                Email = "shinjinho@poetentialhideout.com",
+                PathId = "test",
                 CreatedAt = DateTime.Parse("2025-10-20 11:31").ToUniversalTime(),
             }
         );

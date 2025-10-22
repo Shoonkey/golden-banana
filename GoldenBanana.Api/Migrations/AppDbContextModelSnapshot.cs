@@ -257,7 +257,7 @@ namespace GoldenBanana.Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("PathId")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -270,7 +270,7 @@ namespace GoldenBanana.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Email")
+                    b.HasIndex("PathId")
                         .IsUnique();
 
                     b.HasIndex("Username")
@@ -283,7 +283,7 @@ namespace GoldenBanana.Api.Migrations
                         {
                             Id = new Guid("10000000-0000-0000-0000-000000000001"),
                             CreatedAt = new DateTime(2025, 10, 20, 14, 31, 0, 0, DateTimeKind.Utc),
-                            Email = "shinjinho@poetentialhideout.com",
+                            PathId = "test",
                             Rating = 0m,
                             Username = "shinjinho"
                         });

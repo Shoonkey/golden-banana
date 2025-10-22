@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GoldenBanana.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,7 +43,7 @@ namespace GoldenBanana.Api.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Username = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false),
+                    PathId = table.Column<string>(type: "text", nullable: false),
                     Rating = table.Column<decimal>(type: "numeric", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -228,8 +228,8 @@ namespace GoldenBanana.Api.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "CreatedAt", "Email", "Rating", "Username" },
-                values: new object[] { new Guid("10000000-0000-0000-0000-000000000001"), new DateTime(2025, 10, 20, 14, 31, 0, 0, DateTimeKind.Utc), "shinjinho@poetentialhideout.com", 0m, "shinjinho" });
+                columns: new[] { "Id", "CreatedAt", "PathId", "Rating", "Username" },
+                values: new object[] { new Guid("10000000-0000-0000-0000-000000000001"), new DateTime(2025, 10, 20, 14, 31, 0, 0, DateTimeKind.Utc), "test", 0m, "shinjinho" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HideoutChangelogEntries_HideoutId",
@@ -284,9 +284,9 @@ namespace GoldenBanana.Api.Migrations
                 column: "HideoutId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_Email",
+                name: "IX_Users_PathId",
                 table: "Users",
-                column: "Email",
+                column: "PathId",
                 unique: true);
 
             migrationBuilder.CreateIndex(

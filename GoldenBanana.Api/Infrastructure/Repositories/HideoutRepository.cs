@@ -45,6 +45,10 @@ public class HideoutRepository(AppDbContext context)
         {
             query = query.Where(h => h.Tags.Any(t => parsedFilter.Tags.Contains(t.Id)));
         }
+        if (parsedFilter.Author != null)
+        {
+            query = query.Where(h => h.Author.Username == parsedFilter.Author);
+        }
 
         return query;
     }

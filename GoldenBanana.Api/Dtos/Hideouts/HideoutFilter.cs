@@ -9,4 +9,5 @@ public class HideoutFilter : Filter
     public bool? HasMTX { get; set; }
     public Guid[]? MapIds { get; set; }
     public Guid[]? Tags { get; set; }
+    public string? Author { get; set; }
 }
