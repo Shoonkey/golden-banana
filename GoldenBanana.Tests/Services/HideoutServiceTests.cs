@@ -10,13 +10,15 @@ namespace GoldenBanana.Tests.Services;
 
 public class HideoutServiceTests
 {
+    private readonly Mock<IHideoutRepository> _hideoutRepoMock = new();
+    private readonly Mock<IHideoutMapRepository> _hideoutMapRepoMock = new();
+    private readonly Mock<IHideoutTagRepository> _hideoutTagRepoMock = new();
+
     private readonly HideoutService _service;
-    private readonly Mock<IHideoutRepository> _repositoryMock;
 
     public HideoutServiceTests()
     {
-        _repositoryMock = new Mock<IHideoutRepository>();
-        _service = new HideoutService(_repositoryMock.Object);
+        _service = new HideoutService(_hideoutRepoMock.Object, _hideoutMapRepoMock.Object, _hideoutTagRepoMock.Object);
     }
 
     [Fact]
@@ -29,7 +31,7 @@ public class HideoutServiceTests
             It.IsAny<Filter>(),
             It.IsAny<Func<Hideout, HideoutListItem>>());
 
-        _repositoryMock.Setup(filteringCall)
+        _hideoutRepoMock.Setup(filteringCall)
             .ReturnsAsync(new PaginatedResponse<HideoutListItem>());
 
         // Act
@@ -38,6 +40,6 @@ public class HideoutServiceTests
         // Assert
         Assert.NotNull(res);
         Assert.Empty(res.Items);
-        _repositoryMock.Verify(filteringCall, Times.Once);
+        _hideoutRepoMock.Verify(filteringCall, Times.Once);
     }
 }
