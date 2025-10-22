@@ -1,4 +1,5 @@
 ﻿using GoldenBanana.Api.Dtos.Hideouts;
+using GoldenBanana.Api.Infrastructure.Models;
 
 namespace GoldenBanana.Api.Interfaces
 {
@@ -8,5 +9,7 @@ namespace GoldenBanana.Api.Interfaces
             int page,
             int pageSize,
             HideoutFilter? filters);
+        Task<IEnumerable<HideoutMap>> GetHideoutMaps();
+        Task<IEnumerable<HideoutTag>> GetHideoutTags();
     }
 }

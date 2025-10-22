@@ -1,20 +1,25 @@
 ﻿using GoldenBanana.Api.Dtos.Hideouts;
 using GoldenBanana.Api.Infrastructure.Interfaces;
+using GoldenBanana.Api.Infrastructure.Models;
 using GoldenBanana.Api.Interfaces;
 
 namespace GoldenBanana.Api.Services;
 
 public class HideoutService(
-    IHideoutRepository repository) : IHideoutService
+    IHideoutRepository hideoutRepository,
+    IHideoutMapRepository hideoutMapRepository,
+    IHideoutTagRepository hideoutTagRepository) : IHideoutService
 {
-    private readonly IHideoutRepository _repository = repository;
+    private readonly IHideoutRepository _hideoutRepository = hideoutRepository;
+    private readonly IHideoutMapRepository _hideoutMapRepository = hideoutMapRepository;
+    private readonly IHideoutTagRepository _hideoutTagRepository = hideoutTagRepository;
 
     public async Task<PaginatedResponse<HideoutListItem>> GetFilteredAsync(
         int page,
         int pageSize,
         HideoutFilter? filters)
     {
-        return await _repository.GetFilteredAsync(
+        return await _hideoutRepository.GetFilteredAsync(
             page,
             pageSize,
             filters,
@@ -27,5 +32,15 @@ public class HideoutService(
                 h.HasMTX,
                 h.Rating,
                 h.Author.Username));
+    }
+
+    public async Task<IEnumerable<HideoutMap>> GetHideoutMaps()
+    {
+        return await _hideoutMapRepository.GetAllAsync();
+    }
+
+    public async Task<IEnumerable<HideoutTag>> GetHideoutTags()
+    {
+        return await _hideoutTagRepository.GetAllAsync();
     }
 }

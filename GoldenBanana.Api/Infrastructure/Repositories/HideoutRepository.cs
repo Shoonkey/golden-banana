@@ -13,6 +13,7 @@ public class HideoutRepository(AppDbContext context)
         _dbSet
             .Include(h => h.Map)
             .Include(h => h.Author)
+            .Include(h => h.Images)
             .Include(h => h.Tags).ThenInclude(ht => ht.Tag);
 
     protected override IQueryable<Hideout> Filter(

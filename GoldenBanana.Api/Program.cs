@@ -25,6 +25,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IHideoutService, HideoutService>();
 builder.Services.AddScoped<IHideoutRepository, HideoutRepository>();
+builder.Services.AddScoped<IHideoutMapRepository, HideoutMapRepository>();
+builder.Services.AddScoped<IHideoutTagRepository, HideoutTagRepository>();
 
 var app = builder.Build();
 

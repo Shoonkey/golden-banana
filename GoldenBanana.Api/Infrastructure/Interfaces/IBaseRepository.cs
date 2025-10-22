@@ -10,5 +10,4 @@ public interface IBaseRepository<T> where T : BaseEntity
     void Create(T data);
     void Update(T data);
     Task DeleteById(Guid id);
-    Task<IEnumerable<T>> GetFilteredAsync(int page, int pageSize, Filter filters);
 }

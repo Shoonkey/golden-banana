@@ -21,4 +21,18 @@ public class HideoutController(
 
         return Ok(filtered);
     }
+
+    [HttpGet("maps")]
+    public async Task<ActionResult> GetHideoutMaps()
+    {
+        var maps = await _hideoutService.GetHideoutMaps();
+        return Ok(maps);
+    }
+
+    [HttpGet("tags")]
+    public async Task<ActionResult> GetHideoutTags()
+    {
+        var tags = await _hideoutService.GetHideoutTags();
+        return Ok(tags);
+    }
 }
