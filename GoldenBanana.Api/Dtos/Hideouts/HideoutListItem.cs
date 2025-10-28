@@ -1,13 +1,15 @@
-﻿using GoldenBanana.Api.Infrastructure.Models;
+﻿using GoldenBanana.Api.Enums;
+using GoldenBanana.Api.Infrastructure.Models;
 
 namespace GoldenBanana.Api.Dtos.Hideouts;
 
 public record HideoutListItem(
     Guid Id,
     string Name,
-    string[] ImageUrls,
+    ImageDto[] Images,
     HideoutTag[] Tags,
     HideoutMap Map,
     bool HasMTX,
     decimal Rating,
-    string Author);
+    string Author,
+    PoeVersion PoeVersion);

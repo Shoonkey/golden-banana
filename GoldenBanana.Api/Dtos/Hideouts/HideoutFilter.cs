@@ -8,6 +8,6 @@ public class HideoutFilter : Filter
     public PoeVersion? PoeVersion { get; set; }
     public bool? HasMTX { get; set; }
     public Guid[]? MapIds { get; set; }
-    public Guid[]? Tags { get; set; }
+    public Guid[]? TagIds { get; set; }
     public string? Author { get; set; }
 }

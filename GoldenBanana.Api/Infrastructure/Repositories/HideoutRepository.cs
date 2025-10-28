@@ -41,9 +41,9 @@ public class HideoutRepository(AppDbContext context)
         {
             query = query.Where(h => parsedFilter.MapIds.Contains(h.HideoutMapId));
         }
-        if (parsedFilter.Tags != null)
+        if (parsedFilter.TagIds != null)
         {
-            query = query.Where(h => h.Tags.Any(t => parsedFilter.Tags.Contains(t.Id)));
+            query = query.Where(h => h.Tags.Any(t => parsedFilter.TagIds.Contains(t.HideoutTagId)));
         }
         if (parsedFilter.Author != null)
         {

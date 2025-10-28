@@ -1,4 +1,5 @@
-﻿using GoldenBanana.Api.Dtos.Hideouts;
+﻿using GoldenBanana.Api.Dtos;
+using GoldenBanana.Api.Dtos.Hideouts;
 using GoldenBanana.Api.Infrastructure.Interfaces;
 using GoldenBanana.Api.Infrastructure.Models;
 using GoldenBanana.Api.Interfaces;
@@ -26,12 +27,13 @@ public class HideoutService(
             h => new HideoutListItem(
                 h.Id,
                 h.Name,
-                [.. h.Images.Select(i => i.Url)],
+                [.. h.Images.Select(i => new ImageDto(i.Url, i.Alt))],
                 [.. h.Tags.Select(t => t.Tag)],
                 h.Map,
                 h.HasMTX,
                 h.Rating,
-                h.Author.Username));
+                h.Author.Username,
+                h.PoeVersion));
     }
 
     public async Task<IEnumerable<HideoutMap>> GetHideoutMaps()
