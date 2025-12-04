@@ -25,14 +25,22 @@ public class HideoutController(
     [HttpGet("maps")]
     public async Task<ActionResult> GetHideoutMaps()
     {
-        var maps = await _hideoutService.GetHideoutMaps();
+        var maps = await _hideoutService.GetHideoutMapsAsync();
         return Ok(maps);
     }
 
     [HttpGet("tags")]
     public async Task<ActionResult> GetHideoutTags()
     {
-        var tags = await _hideoutService.GetHideoutTags();
+        var tags = await _hideoutService.GetHideoutTagsAsync();
         return Ok(tags);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Create([FromForm] CreateHideoutDto dto)
+    {
+        // TODO: Change to actual username
+        var res = await _hideoutService.CreateAsync("julião", dto);
+        return Ok(res);
     }
 }

@@ -35,7 +35,7 @@ public class HideoutRepository(AppDbContext context)
         }
         if (parsedFilter.HasMTX != null)
         {
-            query = query.Where(h => h.HasMTX == parsedFilter.HasMTX);
+            query = query.Where(h => h.HasMtx == parsedFilter.HasMTX);
         }
         if (parsedFilter.MapIds != null)
         {

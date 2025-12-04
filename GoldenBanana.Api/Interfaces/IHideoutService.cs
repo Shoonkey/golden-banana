@@ -9,6 +9,7 @@ public interface IHideoutService
         int page,
         int pageSize,
         HideoutFilter? filters);
-    Task<IEnumerable<HideoutMap>> GetHideoutMaps();
-    Task<IEnumerable<HideoutTag>> GetHideoutTags();
+    Task<IEnumerable<HideoutMap>> GetHideoutMapsAsync();
+    Task<IEnumerable<HideoutTag>> GetHideoutTagsAsync();
+    Task<Hideout?> CreateAsync(string username, CreateHideoutDto dto);
 }

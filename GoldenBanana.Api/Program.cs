@@ -33,11 +33,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IHideoutService, HideoutService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.AddInfrastructureServices();
 
-builder.Services.AddScoped<IHideoutRepository, HideoutRepository>();
-builder.Services.AddScoped<IHideoutMapRepository, HideoutMapRepository>();
-builder.Services.AddScoped<IHideoutTagRepository, HideoutTagRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // More Identity settings
 //builder.Services.Configure<IdentityOptions>(options =>
